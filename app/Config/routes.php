@@ -30,6 +30,8 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/admin', array('controller' => 'Estatisticas', 'action' => 'index','admin'=>true));
+	//App::import('Lib', 'SeoRoute');
+	//Router::connect(':slug', array(),array('routeClass' => 'SeoRoute'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

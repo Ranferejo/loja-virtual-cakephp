@@ -1,0 +1,1 @@
+<div class="alert alert-block alert-danger fade in"><?php echo $message; ?><a class="close" href="#" data-dismiss="alert">&times;</a></div>

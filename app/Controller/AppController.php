@@ -32,18 +32,53 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	
+	public $components = array(
+		'Session',
+		'Cookie',
+		'Auth' => array(
+			'authenticate'=>array(
+				'Blowfish'=>array(
+					'scope'=>array('ativo'=>true)
+				)
+			)
+        )
+	);
+	
 	public $helpers = array(
 		'Html' => array('className' => 'BootstrapHtml'),
 		'Form' => array('className' => 'BootstrapForm'),
 		'Paginator' => array('className' => 'BootstrapPaginator'),
+		'Cache',
 	);
 	
+	public function beforeFilter(){
+		
+	}
+	
 	public function beforeRender(){
-		//setar um tema default aqui
+		
+		//define Temas e Layout para o sistema
 		if(isset($this->request->params['prefix'])){
 			if($this->request->params['prefix']=='ajax') $this->layout='ajax' ;
 		}else{
 			$this->theme='default';
 		}
+		
+		//Retorna informações do usuário
+		$this->set('user',$this->Auth->user());
+		
+		//Define a active do menu
+		
+			//home
+		$estatisticas=array('Estatisticas');
+		if(in_array($this->request->params['controller'],$estatisticas)){
+			$active = 'home';
+		}else{
+			$active = 'none';
+		}
+				
+		$this->set('active',$active);
+		
 	}
 }

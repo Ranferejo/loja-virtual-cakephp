@@ -1,5 +1,26 @@
-<?php
-?>
+<?php ?>
+
+<h1>Detalhes técnicos</h1>
+<p><strong>Já configurado:</strong></p>
+<p>
+<ul>
+	<li>Cache usa Apc caso esteja disponivel, se não usa File</li>
+    <li>Session usa cache em vez de php com checkAgent ligado</li>
+    <li>Todos os campos datetime são convertidos par o padrão 'Terça-feira, 21 de Maio de 2013, 11h:21m'.</li>
+    <li>Eav pronto para ser usado</li>
+</ul>
+</p>
+<p><strong>Ainda falta:</strong></p>
+<p>
+<ul>
+	<li>Criar um sistema de lembrar senhas!</li>
+    <li>Criar configuração de email via banco de dados, ver com o Thiago</li>
+	<li>Criar um component de exportação de dados em csv, excel e pdf. Assim vou poder usar em qualquer lugar</li>
+    <li>Criar um component de importação de cvs e excel para o banco de dados, o mais genérico possível, para usar em qualquer lugar</li>
+    <li>Pensar em um sistema de cadastro de Produtos com campos para personalizar o produto.</li>
+</ul>
+</p>
+
 <h1>Frontend e renderização CakePHP</h1>
 <h2>Frontend</h2>
 <p>Essa é minha sugestão para frontend, estou usando Twitter Bootstrap como base, mas sem os icones, estes troquei pelo Font Awesome que traz os icones do bootstrap em versão fonte e ainda muito mais, com o acréscimo de ser uma fonte, ou seja, podemos alterar a cor e não nos limitarmos ao preto padrão.</p>

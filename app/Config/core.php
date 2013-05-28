@@ -138,7 +138,7 @@
  * or in each action using $this->cacheAction = true.
  *
  */
-	//Configure::write('Cache.check', true);
+	Configure::write('Cache.check', true);
 
 /**
  * Enable cache view prefixes.
@@ -188,7 +188,9 @@
  *
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'cache',
+		'checkAgent'=>true,
+		'cookie' => 'destak',
 	));
 
 /**
@@ -312,7 +314,13 @@
  *       Please check the comments in bootstrap.php for more info on the cache engines available
  *       and their settings.
  */
-$engine = 'File';
+define('APC_EXTENSION_LOADED', extension_loaded('apc') && ini_get('apc.enabled'));
+
+if(APC_EXTENSION_LOADED){
+	$engine = 'Apc';
+}else{
+	$engine = 'File';
+}
 
 // In development mode, caches should expire quickly.
 $duration = '+999 days';
@@ -321,7 +329,8 @@ if (Configure::read('debug') > 0) {
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
+$prefix = 'destak_';
+
 
 /**
  * Configure the cache used for general framework caching. Path information,
