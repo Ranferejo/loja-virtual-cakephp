@@ -1790,3 +1790,12 @@ Stack Trace:
 #1 C:\xampp\htdocs\c\lojavirtual\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProdutosController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\c\lojavirtual\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-05-28 23:37:45 Error: [MissingControllerException] Controller class UsersController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersController',
+  'plugin' => 'Catalogo',
+)
+Request URL: /c/lojavirtual/admin/catalogo/Users/add/1
+Stack Trace:
+#0 C:\xampp\htdocs\c\lojavirtual\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
